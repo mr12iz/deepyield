@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Stats } from "@/components/Stats";
 import { Features } from "@/components/Features";
-import { Twitter, Send, Copy, Bot } from "lucide-react";
+import { Twitter, Send, Copy, Bot, BookOpen, Video, Newspaper, Book, Coins, Lock, Users, Brain } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -48,7 +48,118 @@ const Index = () => {
       <Stats />
       <Features />
 
-      {/* Roadmap Section */}
+      {/* Learn Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900">Learn DeepYield</h2>
+            <p className="mt-4 text-lg text-gray-600">Master AI-powered DeFi with our comprehensive resources</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Documentation */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-3 mb-4">
+                <BookOpen className="h-6 w-6 text-primary" />
+                <h3 className="font-semibold text-lg">Documentation</h3>
+              </div>
+              <p className="text-gray-600">
+                Comprehensive guides and API references for developers and users to integrate and utilize DeepYield.
+              </p>
+            </div>
+
+            {/* Tutorial */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-3 mb-4">
+                <Video className="h-6 w-6 text-primary" />
+                <h3 className="font-semibold text-lg">Tutorial</h3>
+              </div>
+              <p className="text-gray-600">
+                Step-by-step video guides and interactive lessons to help you maximize your yields.
+              </p>
+            </div>
+
+            {/* Blog */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-3 mb-4">
+                <Newspaper className="h-6 w-6 text-primary" />
+                <h3 className="font-semibold text-lg">Blog</h3>
+              </div>
+              <p className="text-gray-600">
+                Latest updates, market insights, and deep dives into DeFi strategies and AI technology.
+              </p>
+            </div>
+
+            {/* Glossary */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-3 mb-4">
+                <Book className="h-6 w-6 text-primary" />
+                <h3 className="font-semibold text-lg">Glossary</h3>
+              </div>
+              <p className="text-gray-600">
+                Comprehensive dictionary of DeFi and AI terms to help you understand the ecosystem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900">Our Products</h2>
+            <p className="mt-4 text-lg text-gray-600">Advanced DeFi solutions powered by artificial intelligence</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Yield Optimizer */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-3 mb-4">
+                <Coins className="h-6 w-6 text-primary" />
+                <h3 className="font-semibold text-lg">Yield Optimizer</h3>
+              </div>
+              <p className="text-gray-600">
+                AI-driven platform that automatically finds and allocates funds to the highest-yielding opportunities across multiple chains.
+              </p>
+            </div>
+
+            {/* Deep Staking */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-3 mb-4">
+                <Lock className="h-6 w-6 text-primary" />
+                <h3 className="font-semibold text-lg">Deep Staking</h3>
+              </div>
+              <p className="text-gray-600">
+                Enhanced staking protocol with AI-optimized rewards and flexible lock periods for maximum returns.
+              </p>
+            </div>
+
+            {/* Governance Portal */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-3 mb-4">
+                <Users className="h-6 w-6 text-primary" />
+                <h3 className="font-semibold text-lg">Governance Portal</h3>
+              </div>
+              <p className="text-gray-600">
+                Decentralized governance platform for $DEEP holders to vote on protocol upgrades and treasury allocation.
+              </p>
+            </div>
+
+            {/* AI Vaults */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-3 mb-4">
+                <Brain className="h-6 w-6 text-primary" />
+                <h3 className="font-semibold text-lg">AI Vaults</h3>
+              </div>
+              <p className="text-gray-600">
+                Smart vaults that use machine learning to automate yield farming strategies and minimize impermanent loss.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
