@@ -2,9 +2,19 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Stats } from "@/components/Stats";
 import { Features } from "@/components/Features";
-import { Twitter, Send } from "lucide-react";
+import { Twitter, Send, Copy, Bot } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const Index = () => {
+  const [showAIChat, setShowAIChat] = useState(false);
+  const contractAddress = "0x1234...5678"; // Replace with actual CA
+
+  const copyCA = () => {
+    navigator.clipboard.writeText(contractAddress);
+    toast.success("Contract address copied!");
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -20,13 +30,16 @@ const Index = () => {
               Experience the future of decentralized finance with our advanced AI algorithms
               optimizing your yields across multiple chains.
             </p>
-            <div className="mt-10 flex justify-center gap-4">
+            <div className="mt-10 flex flex-col items-center gap-4">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90">
                 Start Earning Now
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                Explore Features
-              </Button>
+              <div className="flex items-center gap-2 bg-white/10 rounded-lg px-4 py-2 text-white">
+                <span className="text-sm">CA: {contractAddress}</span>
+                <Button variant="ghost" size="icon" onClick={copyCA} className="text-white hover:text-primary">
+                  <Copy className="h-4 w-4" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -34,28 +47,6 @@ const Index = () => {
 
       <Stats />
       <Features />
-
-      {/* Integration Partners */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900">
-              Trusted by Leading Protocols
-            </h2>
-            <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4">
-              {/* Replace with actual partner logos */}
-              {Array.from({ length: 4 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="flex justify-center items-center h-16 bg-gray-100 rounded-lg"
-                >
-                  <span className="text-gray-400">Partner {i + 1}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Roadmap Section */}
       <section className="py-24 bg-gray-50">
@@ -117,7 +108,77 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer with Social Links */}
+      {/* Tokenomics Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900">Tokenomics</h2>
+            <p className="mt-4 text-lg text-gray-600">Understanding $DEEP Token Distribution</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="relative">
+              <div className="aspect-square rounded-full bg-primary/10 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">30%</div>
+                  <div className="text-sm text-gray-600">Liquidity & Staking</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-full bg-secondary/10 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-secondary">20%</div>
+                  <div className="text-sm text-gray-600">Team & Advisors</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-full bg-primary/10 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">15%</div>
+                  <div className="text-sm text-gray-600">Community & Airdrop</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-full bg-secondary/10 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-secondary">35%</div>
+                  <div className="text-sm text-gray-600">Treasury</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Assistant Bubble */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <Button
+          onClick={() => setShowAIChat(!showAIChat)}
+          className="rounded-full w-16 h-16 shadow-lg"
+        >
+          <Bot className="h-8 w-8" />
+        </Button>
+        
+        {showAIChat && (
+          <div className="absolute bottom-20 right-0 w-80 bg-white rounded-lg shadow-xl p-4">
+            <div className="text-lg font-semibold mb-2">AI Token Analysis</div>
+            <p className="text-sm text-gray-600 mb-4">
+              Let our AI analyze any token for you. Just paste the contract address below.
+            </p>
+            <input
+              type="text"
+              placeholder="Paste token CA here..."
+              className="w-full p-2 border rounded mb-2"
+            />
+            <Button className="w-full">Analyze Token</Button>
+          </div>
+        )}
+      </div>
+
+      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-center space-y-6">
