@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Stats } from "@/components/Stats";
 import { Features } from "@/components/Features";
-import { Twitter, Telegram } from "lucide-react";
+import { Twitter, Send } from "lucide-react";
 
 const Index = () => {
   return (
@@ -136,7 +136,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
               >
-                <Telegram className="w-6 h-6" />
+                <Send className="w-6 h-6" />
               </a>
             </div>
             <div className="text-sm text-gray-400">
