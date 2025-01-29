@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Stats } from "@/components/Stats";
 import { Features } from "@/components/Features";
-import { Twitter, Send, Copy, Bot, BookOpen, Video, Newspaper, Book, Coins, Lock, Users, Brain } from "lucide-react";
+import { Twitter, Send, Copy, Bot } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
 const Index = () => {
   const [showAIChat, setShowAIChat] = useState(false);
-  const contractAddress = "0x1234...5678"; // Replace with actual CA
+  const contractAddress = "0x1234...5678";
 
   const copyCA = () => {
     navigator.clipboard.writeText(contractAddress);
@@ -48,221 +48,71 @@ const Index = () => {
       <Stats />
       <Features />
 
-      {/* Learn Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Learn DeepYield</h2>
-            <p className="mt-4 text-lg text-gray-600">Master AI-powered DeFi with our comprehensive resources</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Documentation */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <BookOpen className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Documentation</h3>
-              </div>
-              <p className="text-gray-600">
-                Comprehensive guides and API references for developers and users to integrate and utilize DeepYield.
-              </p>
-            </div>
-
-            {/* Tutorial */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Video className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Tutorial</h3>
-              </div>
-              <p className="text-gray-600">
-                Step-by-step video guides and interactive lessons to help you maximize your yields.
-              </p>
-            </div>
-
-            {/* Blog */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Newspaper className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Blog</h3>
-              </div>
-              <p className="text-gray-600">
-                Latest updates, market insights, and deep dives into DeFi strategies and AI technology.
-              </p>
-            </div>
-
-            {/* Glossary */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Book className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Glossary</h3>
-              </div>
-              <p className="text-gray-600">
-                Comprehensive dictionary of DeFi and AI terms to help you understand the ecosystem.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Products Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Our Products</h2>
-            <p className="mt-4 text-lg text-gray-600">Advanced DeFi solutions powered by artificial intelligence</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Yield Optimizer */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Coins className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Yield Optimizer</h3>
-              </div>
-              <p className="text-gray-600">
-                AI-driven platform that automatically finds and allocates funds to the highest-yielding opportunities across multiple chains.
-              </p>
-            </div>
-
-            {/* Deep Staking */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Lock className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Deep Staking</h3>
-              </div>
-              <p className="text-gray-600">
-                Enhanced staking protocol with AI-optimized rewards and flexible lock periods for maximum returns.
-              </p>
-            </div>
-
-            {/* Governance Portal */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Users className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Governance Portal</h3>
-              </div>
-              <p className="text-gray-600">
-                Decentralized governance platform for $DEEP holders to vote on protocol upgrades and treasury allocation.
-              </p>
-            </div>
-
-            {/* AI Vaults */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Brain className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">AI Vaults</h3>
-              </div>
-              <p className="text-gray-600">
-                Smart vaults that use machine learning to automate yield farming strategies and minimize impermanent loss.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Our Roadmap</h2>
-            <p className="mt-4 text-lg text-gray-600">Building the future of AI-powered DeFi</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Phase 1 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary font-bold mb-4">Phase 1: Foundation</div>
-              <h3 className="font-semibold mb-2">Months 0-6</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Launch AI model beta</li>
-                <li>• DEX integrations</li>
-                <li>• Smart contract deployment</li>
-                <li>• Community building</li>
-              </ul>
-            </div>
-
-            {/* Phase 2 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary font-bold mb-4">Phase 2: Expansion</div>
-              <h3 className="font-semibold mb-2">Months 6-12</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Multi-chain AI optimization</li>
-                <li>• Strategic partnerships</li>
-                <li>• Deep Vaults launch</li>
-                <li>• Initial governance</li>
-              </ul>
-            </div>
-
-            {/* Phase 3 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary font-bold mb-4">Phase 3: Maturity</div>
-              <h3 className="font-semibold mb-2">Months 12-18</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Advanced AI predictions</li>
-                <li>• Cross-chain expansion</li>
-                <li>• Mobile app launch</li>
-                <li>• Full DAO governance</li>
-              </ul>
-            </div>
-
-            {/* Phase 4 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary font-bold mb-4">Phase 4: Beyond</div>
-              <h3 className="font-semibold mb-2">18+ Months</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• AI + ZK-Proofs integration</li>
-                <li>• Institutional adoption</li>
-                <li>• Global market expansion</li>
-                <li>• Advanced ecosystem features</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tokenomics Section */}
-      <section className="py-24">
+      {/* Tokenomics Section with Creative Design */}
+      <section className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900">Tokenomics</h2>
-            <p className="mt-4 text-lg text-gray-600">Understanding $DEEP Token Distribution</p>
+            <p className="mt-4 text-lg text-gray-600">$DEEP Token Distribution</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="relative">
-              <div className="aspect-square rounded-full bg-primary/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">30%</div>
-                  <div className="text-sm text-gray-600">Liquidity & Staking</div>
+            {[
+              { label: "Liquidity & Staking", percentage: 30, color: "primary" },
+              { label: "Team & Advisors", percentage: 20, color: "secondary" },
+              { label: "Community & Airdrop", percentage: 15, color: "primary" },
+              { label: "Treasury", percentage: 35, color: "secondary" }
+            ].map((item, index) => (
+              <div key={index} className="relative group">
+                <div className={`aspect-square rounded-full bg-${item.color}/10 hover:bg-${item.color}/20 transition-all duration-300 transform group-hover:scale-105 flex items-center justify-center p-8 border-2 border-${item.color}/20`}>
+                  <div className="text-center">
+                    <div className={`text-4xl font-bold text-${item.color}`}>{item.percentage}%</div>
+                    <div className="text-sm text-gray-600 mt-2">{item.label}</div>
+                  </div>
                 </div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-full opacity-0 group-hover:opacity-20 blur transition duration-300"></div>
               </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-full bg-secondary/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary">20%</div>
-                  <div className="text-sm text-gray-600">Team & Advisors</div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-full bg-primary/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">15%</div>
-                  <div className="text-sm text-gray-600">Community & Airdrop</div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-full bg-secondary/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary">35%</div>
-                  <div className="text-sm text-gray-600">Treasury</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Footer with DexScanner */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-center space-y-6">
+            <div className="flex space-x-6">
+              <a
+                href="https://twitter.com/DeepYield"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                <Twitter className="w-6 h-6" />
+              </a>
+              <a
+                href="https://t.me/DeepYield"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                <Send className="w-6 h-6" />
+              </a>
+              <a
+                href="https://dexscreener.com/DeepYield"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors text-sm font-medium"
+              >
+                DexScreener
+              </a>
+            </div>
+            <div className="text-sm text-gray-400">
+              © 2024 DeepYield. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </footer>
 
       {/* AI Assistant Bubble */}
       <div className="fixed bottom-4 right-4 z-50">
@@ -288,35 +138,6 @@ const Index = () => {
           </div>
         )}
       </div>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-center space-y-6">
-            <div className="flex space-x-6">
-              <a
-                href="https://twitter.com/DeepYield"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a
-                href="https://t.me/DeepYield"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                <Send className="w-6 h-6" />
-              </a>
-            </div>
-            <div className="text-sm text-gray-400">
-              © 2024 DeepYield. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
