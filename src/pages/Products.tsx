@@ -1,63 +1,60 @@
-import { Coins, Lock, Users, Brain } from "lucide-react";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 const Products = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="pt-24">
+    <div className="min-h-screen">
+      <Navigation />
+      <div className="pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-center mb-16">Our Products</h1>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Yield Optimizer */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Coins className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Yield Optimizer</h3>
-              </div>
-              <p className="text-gray-600">
-                AI-driven platform that automatically finds and allocates funds to the highest-yielding opportunities.
-                Smart contract-based system ensures security and efficiency across multiple chains.
+          <h1 className="text-4xl font-bold text-gray-900">Our Products</h1>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="feature-card">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Yield Optimizer</h3>
+              <p className="text-gray-600 mb-4">
+                Maximize your returns with our AI-powered yield optimization engine that automatically finds and allocates funds to the best performing pools.
               </p>
+              <button className="text-primary hover:underline">Learn more →</button>
             </div>
-
-            {/* Deep Staking */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Lock className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Deep Staking</h3>
-              </div>
-              <p className="text-gray-600">
-                Enhanced staking protocol with AI-optimized rewards and flexible lock periods.
-                Earn maximum returns while maintaining liquidity options.
+            <div className="feature-card">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Auto-Compounding</h3>
+              <p className="text-gray-600 mb-4">
+                Automatically reinvest your yields to maximize compound interest across multiple DeFi protocols.
               </p>
+              <button className="text-primary hover:underline">Learn more →</button>
             </div>
-
-            {/* Governance Portal */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Users className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">Governance Portal</h3>
-              </div>
-              <p className="text-gray-600">
-                Decentralized governance platform for $DEEP holders to participate in protocol decisions.
-                Vote on upgrades, treasury allocation, and strategic partnerships.
+            <div className="feature-card">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Risk Analytics</h3>
+              <p className="text-gray-600 mb-4">
+                Advanced risk assessment tools powered by AI to help you make informed investment decisions.
               </p>
+              <button className="text-primary hover:underline">Learn more →</button>
             </div>
-
-            {/* AI Vaults */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Brain className="h-6 w-6 text-primary" />
-                <h3 className="font-semibold text-lg">AI Vaults</h3>
-              </div>
-              <p className="text-gray-600">
-                Smart vaults using machine learning to automate yield farming strategies.
-                Minimize impermanent loss while maximizing returns through AI-powered portfolio management.
+            <div className="feature-card">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Cross-Chain Bridge</h3>
+              <p className="text-gray-600 mb-4">
+                Seamlessly transfer assets across different blockchain networks with our secure bridge solution.
               </p>
+              <button className="text-primary hover:underline">Learn more →</button>
+            </div>
+            <div className="feature-card">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Liquidity Pools</h3>
+              <p className="text-gray-600 mb-4">
+                Provide liquidity to earn fees and rewards while supporting the DeFi ecosystem.
+              </p>
+              <button className="text-primary hover:underline">Learn more →</button>
+            </div>
+            <div className="feature-card">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Portfolio Tracker</h3>
+              <p className="text-gray-600 mb-4">
+                Monitor your DeFi investments across all platforms in one convenient dashboard.
+              </p>
+              <button className="text-primary hover:underline">Learn more →</button>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

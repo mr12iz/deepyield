@@ -10,6 +10,7 @@ export function Navigation() {
     { label: "Products", href: "/products" },
     { label: "Learn", href: "/learn" },
     { label: "About", href: "/about" },
+    { label: "Tokenomics", href: "/tokenomics" },
   ];
 
   return (
