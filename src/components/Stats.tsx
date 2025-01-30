@@ -33,11 +33,11 @@ export function Stats() {
       {stats.map((stat) => (
         <div key={stat.label} className="stats-card">
           <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-400">{stat.label}</span>
+            <span className="text-sm text-black">{stat.label}</span>
             <stat.icon className="h-5 w-5 text-primary" />
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-2xl font-semibold text-white">
+            <span className="text-2xl font-semibold text-black">
               {stat.value}
             </span>
             <span className="text-sm text-green-400">{stat.change}</span>
