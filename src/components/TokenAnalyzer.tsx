@@ -24,14 +24,14 @@ export function TokenAnalyzer({ open, onClose }: TokenAnalyzerProps) {
 
     setLoading(true);
     try {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("OPENAI_API_KEY")}`,
+          "Authorization": "Bearer f2ce40beea77407fa17a64c1a3cc6b69",
         },
         body: JSON.stringify({
-          model: "gpt-4",
+          model: "deepseek-chat",
           messages: [
             {
               role: "system",
@@ -45,8 +45,13 @@ export function TokenAnalyzer({ open, onClose }: TokenAnalyzerProps) {
         }),
       });
 
+      if (!response.ok) {
+        throw new Error('Failed to analyze token');
+      }
+
       const data = await response.json();
       setAnalysis(data.choices[0].message.content);
+      toast.success("Analysis complete!");
     } catch (error) {
       console.error("Error analyzing token:", error);
       toast.error("Failed to analyze token. Please try again.");
