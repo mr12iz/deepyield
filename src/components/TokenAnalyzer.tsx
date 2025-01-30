@@ -24,15 +24,15 @@ export function TokenAnalyzer({ open, onClose }: TokenAnalyzerProps) {
 
     setLoading(true);
     try {
-      const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
+      console.log("Analyzing token address:", address);
+      const response = await fetch("https://api-inference.huggingface.co/models/deepseek-ai/deepseek-coder-1.3b-base", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer f2ce40beea77407fa17a64c1a3cc6b69",
         },
         body: JSON.stringify({
-          model: "deepseek-chat",
-          messages: [
+          inputs: [
             {
               role: "system",
               content: "You are a DeFi expert analyzing token contracts for potential risks and opportunities.",
@@ -46,12 +46,20 @@ export function TokenAnalyzer({ open, onClose }: TokenAnalyzerProps) {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to analyze token');
+        const errorData = await response.text();
+        console.error("API Error Response:", errorData);
+        throw new Error(`Failed to analyze token: ${errorData}`);
       }
 
       const data = await response.json();
-      setAnalysis(data.choices[0].message.content);
-      toast.success("Analysis complete!");
+      console.log("API Response:", data);
+      
+      if (data.choices && data.choices[0] && data.choices[0].message) {
+        setAnalysis(data.choices[0].message.content);
+        toast.success("Analysis complete!");
+      } else {
+        throw new Error("Invalid response format from API");
+      }
     } catch (error) {
       console.error("Error analyzing token:", error);
       toast.error("Failed to analyze token. Please try again.");
