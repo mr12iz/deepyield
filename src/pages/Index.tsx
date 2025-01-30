@@ -2,12 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Stats } from "@/components/Stats";
 import { Features } from "@/components/Features";
-import { Twitter, Send, Copy, Bot } from "lucide-react";
+import { Twitter, Send, Copy, Bot, Search } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { TokenAnalyzer } from "@/components/TokenAnalyzer";
 
 const Index = () => {
   const [showAIChat, setShowAIChat] = useState(false);
+  const [showAnalyzer, setShowAnalyzer] = useState(false);
   const contractAddress = "0x1234...5678";
 
   const copyCA = () => {
@@ -26,20 +28,29 @@ const Index = () => {
             <h1 className="text-4xl font-bold text-white sm:text-6xl">
               Maximize Your Yield with AI-Powered DeFi Strategies
             </h1>
-            <p className="mt-6 text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto">
               Experience the future of decentralized finance with our advanced AI algorithms
               optimizing your yields across multiple chains.
             </p>
-            <div className="mt-10 flex flex-col items-center gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90">
                 Start Earning Now
               </Button>
-              <div className="flex items-center gap-2 bg-white/10 rounded-lg px-4 py-2 text-white">
-                <span className="text-sm">CA: {contractAddress}</span>
-                <Button variant="ghost" size="icon" onClick={copyCA} className="text-white hover:text-primary">
-                  <Copy className="h-4 w-4" />
-                </Button>
-              </div>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white/10 text-white border-white/20 hover:bg-white/20"
+                onClick={() => setShowAnalyzer(true)}
+              >
+                <Search className="mr-2 h-4 w-4" />
+                Analyze Token
+              </Button>
+            </div>
+            <div className="mt-4 flex items-center justify-center gap-2 bg-white/10 rounded-lg px-4 py-2 text-white/90 w-fit mx-auto">
+              <span className="text-sm">CA: {contractAddress}</span>
+              <Button variant="ghost" size="icon" onClick={copyCA} className="text-white hover:text-primary">
+                <Copy className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         </div>
@@ -63,14 +74,14 @@ const Index = () => {
               { label: "Community & Airdrop", percentage: 15, color: "primary" },
               { label: "Treasury", percentage: 35, color: "secondary" }
             ].map((item, index) => (
-              <div key={index} className="relative group">
-                <div className={`aspect-square rounded-full bg-${item.color}/10 hover:bg-${item.color}/20 transition-all duration-300 transform group-hover:scale-105 flex items-center justify-center p-8 border-2 border-${item.color}/20`}>
+              <div key={index} className="relative group animate-pulse hover:animate-none">
+                <div className={`aspect-square rounded-full bg-gradient-to-br from-${item.color} to-${item.color}/20 hover:from-${item.color}/80 hover:to-${item.color}/40 transition-all duration-500 transform group-hover:scale-105 flex items-center justify-center p-8`}>
                   <div className="text-center">
-                    <div className={`text-4xl font-bold text-${item.color}`}>{item.percentage}%</div>
-                    <div className="text-sm text-gray-600 mt-2">{item.label}</div>
+                    <div className="text-4xl font-bold text-white">{item.percentage}%</div>
+                    <div className="text-sm text-white/90 mt-2">{item.label}</div>
                   </div>
                 </div>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-full opacity-0 group-hover:opacity-20 blur transition duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full opacity-0 group-hover:opacity-100 blur transition duration-500"></div>
               </div>
             ))}
           </div>
@@ -138,6 +149,9 @@ const Index = () => {
           </div>
         )}
       </div>
+
+      {/* Token Analyzer Modal */}
+      <TokenAnalyzer open={showAnalyzer} onClose={() => setShowAnalyzer(false)} />
     </div>
   );
 };
