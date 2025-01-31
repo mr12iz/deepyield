@@ -10,3 +10,9 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+[stackbit]
+  deployCommand = "npm run build"
+  buildCommand = "npm run build"
+  devCommand = "npm run dev"
+  containerPort = 8080
