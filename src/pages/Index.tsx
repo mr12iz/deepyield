@@ -52,11 +52,17 @@ const Index = () => {
                 Analyze Token
               </Button>
             </div>
-            <div className="mt-4 flex items-center justify-center gap-2 bg-white/10 rounded-lg px-4 py-2 text-white/90 w-fit mx-auto">
-              <span className="text-sm">CA: {contractAddress}</span>
-              <Button variant="ghost" size="icon" onClick={copyCA} className="text-white hover:text-primary">
-                <Search className="h-4 w-4" />
-              </Button>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3">
+              <div className="bg-white/10 backdrop-blur-lg rounded-xl px-6 py-4 text-white/90 w-fit mx-auto border border-white/20 hover:border-primary/50 transition-all duration-300 group cursor-pointer" onClick={copyCA}>
+                <div className="text-xs uppercase tracking-wider mb-1 text-white/70">Contract Address</div>
+                <div className="flex items-center gap-3">
+                  <span className="text-lg font-mono">{contractAddress}</span>
+                  <Button variant="ghost" size="icon" className="text-white/70 group-hover:text-primary transition-colors">
+                    <Search className="h-5 w-5" />
+                  </Button>
+                </div>
+                <div className="text-xs text-white/50 mt-1">Click to copy</div>
+              </div>
             </div>
           </div>
         </div>
