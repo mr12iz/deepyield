@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Learn from "./pages/Learn";
 import Products from "./pages/Products";
 import About from "./pages/About";
+import Tokenomics from "./pages/Tokenomics";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/learn" element={<Learn />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
+          <Route path="/tokenomics" element={<Tokenomics />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

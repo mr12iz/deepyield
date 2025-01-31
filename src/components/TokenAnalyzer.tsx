@@ -25,23 +25,31 @@ export function TokenAnalyzer({ open, onClose }: TokenAnalyzerProps) {
     setLoading(true);
     try {
       console.log("Analyzing token address:", address);
-      const response = await fetch("https://api-inference.huggingface.co/models/deepseek-ai/deepseek-coder-1.3b-base", {
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer f2ce40beea77407fa17a64c1a3cc6b69",
+          "Authorization": "Bearer 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",
+          "HTTP-Referer": window.location.origin,
+          "X-Title": "DeepYield Token Analyzer"
         },
         body: JSON.stringify({
-          inputs: [
+          model: "anthropic/claude-2",
+          messages: [
             {
               role: "system",
-              content: "You are a DeFi expert analyzing token contracts for potential risks and opportunities.",
+              content: "You are an expert DeFi analyst specializing in high-yield strategies. Analyze token contracts for potential risks, opportunities, and optimal yield farming strategies."
             },
             {
               role: "user",
-              content: `Analyze this token contract address: ${address}. Provide insights on tokenomics, security features, and potential risks.`,
-            },
-          ],
+              content: `Analyze this token contract address: ${address}. Focus on:
+              1. Yield potential and farming opportunities
+              2. Security features and potential risks
+              3. Tokenomics analysis
+              4. Recommended high-yield strategies
+              5. Market position and growth potential`
+            }
+          ]
         }),
       });
 
@@ -74,7 +82,7 @@ export function TokenAnalyzer({ open, onClose }: TokenAnalyzerProps) {
         <DialogHeader>
           <DialogTitle>AI Token Analysis</DialogTitle>
           <DialogDescription>
-            Enter a token contract address to get an AI-powered analysis of its potential risks and opportunities.
+            Get an AI-powered analysis of token potential, focusing on high-yield strategies and opportunities.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
