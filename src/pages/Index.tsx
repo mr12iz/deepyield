@@ -11,7 +11,7 @@ import { TokenAnalyzer } from "@/components/TokenAnalyzer";
 const Index = () => {
   const [showAIChat, setShowAIChat] = useState(false);
   const [showAnalyzer, setShowAnalyzer] = useState(false);
-  const contractAddress = "0x1234...5678";
+  const contractAddress = "8FsPsBqmpeJxQJTeTwZ8WAdrKEQum2X2VWwSu1RLpump";
 
   const copyCA = () => {
     navigator.clipboard.writeText(contractAddress);
